@@ -2,20 +2,24 @@
 # upgrade, and it lands as a reviewable diff.
 #
 #   brew tap walkccc/appkit
-#   brew install --HEAD appkit
+#   brew install appkit
 #
 # The formula lives in this repo and not beside the code because the tap name
 # `walkccc/appkit` resolves to `walkccc/homebrew-appkit` and nowhere else. Held
 # in the code repo it still worked, but only via `brew tap <name> <url>` — the
 # URL on every install line was the whole cost of keeping it there.
 #
-# On the first tagged release, add the two stable lines and drop --HEAD:
+# A release moves two lines, the tag in `url` and the checksum under it:
 #
-#   url "https://github.com/walkccc/appkit/archive/refs/tags/v1.0.0.tar.gz"
-#   sha256 "<brew fetch --build-from-source appkit prints it>"
+#   curl -sL <that url> | shasum -a 256
+#
+# `head` stays under them for tracking main between releases — that is what
+# `brew install --HEAD appkit` and `brew upgrade --fetch-HEAD appkit` follow.
 class Appkit < Formula
   desc "Store pipeline and shared harness for the apps here"
   homepage "https://github.com/walkccc/appkit"
+  url "https://github.com/walkccc/appkit/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "e7a4cdd888c824263d516402abfaecc97b0d5aaf2ebff00c9690bc718f6997e2"
   license "MIT"
   head "https://github.com/walkccc/appkit.git", branch: "main"
 
