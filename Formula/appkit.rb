@@ -19,7 +19,7 @@ class Appkit < Formula
   desc "Store pipeline and shared harness for the apps here"
   homepage "https://github.com/walkccc/appkit"
   url "https://github.com/walkccc/appkit/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "92cdde33a92348acfd5f2a58bf38ac7d8d4df2bf0d3a0dcfa8e1250b6b39721f"
+  sha256 "39305f9306979df462f60905f8eeb21fab834616cf6e54178fbb1d3325e5c144"
   license "MIT"
   head "https://github.com/walkccc/appkit.git", branch: "main"
 
